@@ -1,302 +1,530 @@
 <!DOCTYPE html>
 <html lang="en">
-    
 <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="author" content="Chetan Ambati">
-        <meta name="description" content="Let Wunderlust Travel whisk you away to the stunning island of Majorca this year! Known for its breathtaking landscapes and vibrant atmosphere, Majorca promises both beauty and enjoyment to its visitors.">
-        <meta name="keywords" content="travel, majorca, beach, island, vacation, destination, getaway, restaurants in majorca, entertainment in majorca, testimonials from visitors, tourism, trip planning, trip, tour, ocean, wanderlust">
-        <meta name="robots" content="index,follow">
-    
-        <title>Wunderlust Travel</title>
-        
-        <meta name="twitter:card" content="summary_large_image">
-        <meta name="twitter:site" content="@wunderlusttravel">
-        <meta name="twitter:creator" content="@wunderlusttravel">
-        <meta name="twitter:title" content="Wunderlust Travel: Majorca">
-        <meta name="twitter:description" content="Let Wunderlust Travel take you to beautiful Majorca this year! Majorca is a beautiful island and offers beauty and fun to its visitors">
-        <meta name="twitter:image" content="https://wunderlusttravel.com/images/majorca-cove.png">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Let Wunderlust Travel whisk you away to the stunning island of Majorca this year! Majorca is a beautiful island and offers beauty and fun to its visitors.">
+    <meta name="author" content="Wunderlust Travel">
+    <meta name="keywords" content="travel, majorca, beach, island, vacation, destination, getaway, restaurants in majorca, entertainment in majorca, testimonials from visitors">
+    <title>Wunderlust Travel - Majorca</title>
 
-        <!-- ~~~~~~~~~~ OPEN GRAPH META TAGS ~~~~~~~~~~ -->
-        <meta property="og:title" content="See Majorca with Wunderlust Travel">
-        <meta property="og:type" content="website">
-        <meta property="og:image" content="https://wunderlusttravel.com/images/majorca-cove.png">
-        <meta property="og:url" content="https://wunderlusttravel.com/majorca">
-        <meta property="og:description" content="Let Wunderlust Travel whisk you away to the stunning island of Majorca this year! Known for its breathtaking landscapes and vibrant atmosphere, Majorca promises both beauty and enjoyment to its visitors.">
-    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="See Majorca with Wunderlust Travel">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://wunderlusttravel.com/images/majorca-cove.png">
+    <meta property="og:url" content="https://wunderlusttravel.com/majorca">
+    <meta property="og:description" content="Let Wunderlust Travel take you to beautiful Majorca this year! Majorca is a beautiful island and offers beauty and fun to its visitors">
+
+    <!-- Twitter Card Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@wunderlusttravel">
+    <meta name="twitter:creator" content="@wunderlusttravel">
+    <meta name="twitter:title" content="Wunderlust Travel: Majorca">
+    <meta name="twitter:description" content="Let Wunderlust Travel take you to beautiful Majorca this year! Majorca is a beautiful island and offers beauty and fun to its visitors">
+    <meta name="twitter:image" content="https://wunderlusttravel.com/images/majorca-cove.png">
+
+    <!-- Google Fonts: Inter (standard for Shadcn) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Shadcn Design Tokens & Tailwind Config -->
+    <script>
+        tailwind.config = {
+            darkMode: ["class"],
+            theme: {
+                container: {
+                    center: true,
+                    padding: "2rem",
+                    screens: {
+                        "2xl": "1400px",
+                    },
+                },
+                extend: {
+                    fontFamily: {
+                        sans: ["Inter", "sans-serif"],
+                    },
+                    colors: {
+                        border: "hsl(var(--border))",
+                        input: "hsl(var(--input))",
+                        ring: "hsl(var(--ring))",
+                        background: "hsl(var(--background))",
+                        foreground: "hsl(var(--foreground))",
+                        primary: {
+                            DEFAULT: "hsl(var(--primary))",
+                            foreground: "hsl(var(--primary-foreground))",
+                        },
+                        secondary: {
+                            DEFAULT: "hsl(var(--secondary))",
+                            foreground: "hsl(var(--secondary-foreground))",
+                        },
+                        destructive: {
+                            DEFAULT: "hsl(var(--destructive))",
+                            foreground: "hsl(var(--destructive-foreground))",
+                        },
+                        muted: {
+                            DEFAULT: "hsl(var(--muted))",
+                            foreground: "hsl(var(--muted-foreground))",
+                        },
+                        accent: {
+                            DEFAULT: "hsl(var(--accent))",
+                            foreground: "hsl(var(--accent-foreground))",
+                        },
+                        popover: {
+                            DEFAULT: "hsl(var(--popover))",
+                            foreground: "hsl(var(--popover-foreground))",
+                        },
+                        card: {
+                            DEFAULT: "hsl(var(--card))",
+                            foreground: "hsl(var(--card-foreground))",
+                        },
+                    },
+                    borderRadius: {
+                        lg: "var(--radius)",
+                        md: "calc(var(--radius) - 2px)",
+                        sm: "calc(var(--radius) - 4px)",
+                    },
+                },
+            },
+        }
+    </script>
+    <style type="text/tailwindcss">
+        @layer base {
+            :root {
+                --background: 0 0% 100%;
+                --foreground: 222.2 84% 4.9%;
+                --card: 0 0% 100%;
+                --card-foreground: 222.2 84% 4.9%;
+                --popover: 0 0% 100%;
+                --popover-foreground: 222.2 84% 4.9%;
+                --primary: 222.2 47.4% 11.2%;
+                --primary-foreground: 210 40% 98%;
+                --secondary: 210 40% 96.1%;
+                --secondary-foreground: 222.2 47.4% 11.2%;
+                --muted: 210 40% 96.1%;
+                --muted-foreground: 215.4 16.3% 46.9%;
+                --accent: 210 40% 96.1%;
+                --accent-foreground: 222.2 47.4% 11.2%;
+                --destructive: 0 84.2% 60.2%;
+                --destructive-foreground: 210 40% 98%;
+                --border: 214.3 31.8% 91.4%;
+                --input: 214.3 31.8% 91.4%;
+                --ring: 222.2 84% 4.9%;
+                --radius: 0.5rem;
+            }
+            .dark {
+                --background: 222.2 84% 4.9%;
+                --foreground: 210 40% 98%;
+                --card: 222.2 84% 4.9%;
+                --card-foreground: 210 40% 98%;
+                --popover: 222.2 84% 4.9%;
+                --popover-foreground: 210 40% 98%;
+                --primary: 210 40% 98%;
+                --primary-foreground: 222.2 47.4% 11.2%;
+                --secondary: 217.2 32.6% 17.5%;
+                --secondary-foreground: 210 40% 98%;
+                --muted: 217.2 32.6% 17.5%;
+                --muted-foreground: 215 20.2% 65.1%;
+                --accent: 217.2 32.6% 17.5%;
+                --accent-foreground: 210 40% 98%;
+                --destructive: 0 62.8% 30.6%;
+                --destructive-foreground: 210 40% 98%;
+                --border: 217.2 32.6% 17.5%;
+                --input: 217.2 32.6% 17.5%;
+                --ring: 212.7 26.8% 83.9%;
+            }
+        }
+        @layer base {
+            * {
+                @apply border-border;
+            }
+            body {
+                @apply bg-background text-foreground;
+                font-feature-settings: "rlig" 1, "calt" 1;
+            }
+        }
+    </style>
 </head>
-<body>
-    <!-- Skip to main content link for accessibility -->
-    <a href="#maincontent" class="skip-link">Skip to main content</a>
-    
-    <!-- Header with navigation -->
-    <header>
-        <h1>Wunderlust Travel</h1>
-        <picture>
-            <!-- Larger devices, higher resolution - 'logo-L.png' -->
-            <source srcset="images/logo-L.png" media="(min-width: 1024px)">
-            <!-- Medium devices - 'logo-M.png' -->
-            <source srcset="images/logo-M.png" media="(min-width: 768px)">
-            <!-- Smaller devices - 'logo-S.png' -->
-            <img src="images/logo-S.png" alt="Wunderlust Travel Logo">
-        </picture>
-        <p>Let Wunderlust Travel help you plan the trip of your dreams!</p>
-        <br>
-        <p>---------------------------</p>
-        <nav>
-            <h2 class="sr-only">Main Navigation</h2>
-            <ul>
-                <li><a href="#destinations">Destinations</a></li>
-                <li><a href="#inspirations">Inspirations</a></li>
-                <li><a href="#special">Special</a></li>
-                <li><a href="#contact">Contact Us</a></li>
-            </ul>
-        </nav>
+<body class="min-h-screen bg-background font-sans antialiased">
+
+    <!-- Header / Navbar -->
+    <header class="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+        <div class="container flex h-16 items-center justify-between">
+            <div class="flex items-center gap-2">
+                <a href="#" class="flex items-center gap-2 font-bold text-xl">
+                    <span class="text-primary">Wunderlust</span>
+                </a>
+            </div>
+            <nav class="hidden md:flex items-center gap-6 text-sm font-medium">
+                <a href="#destinations" class="transition-colors hover:text-primary/80 text-foreground/60">Destinations</a>
+                <a href="#inspirations" class="transition-colors hover:text-primary/80 text-foreground/60">Inspirations</a>
+                <a href="#special" class="transition-colors hover:text-primary/80 text-foreground/60">Special</a>
+                <a href="#contact" class="transition-colors hover:text-primary/80 text-foreground/60">Contact</a>
+            </nav>
+            <div class="md:hidden">
+                <button id="mobile-menu-btn" class="inline-flex items-center justify-center rounded-md p-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 border border-input bg-background shadow-sm h-9 w-9">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
+                </button>
+            </div>
+        </div>
+        <!-- Mobile Menu (Hidden by default) -->
+        <div id="mobile-menu" class="hidden md:hidden border-t bg-background">
+            <div class="container py-4 space-y-2">
+                <a href="#destinations" class="block px-4 py-2 text-sm font-medium hover:bg-accent hover:text-accent-foreground rounded-md">Destinations</a>
+                <a href="#inspirations" class="block px-4 py-2 text-sm font-medium hover:bg-accent hover:text-accent-foreground rounded-md">Inspirations</a>
+                <a href="#special" class="block px-4 py-2 text-sm font-medium hover:bg-accent hover:text-accent-foreground rounded-md">Special</a>
+                <a href="#contact" class="block px-4 py-2 text-sm font-medium hover:bg-accent hover:text-accent-foreground rounded-md">Contact</a>
+            </div>
+        </div>
     </header>
-    <hr>
-    <!-- Main content -->
-    <main id="maincontent">
-        <!-- Section for destinations -->
-        <section id="destinations">
-            <h2>Majorca</h2>
-            <p>Imagine an island with turquoise blue waters, secret coves, soft golden sands, lush green foliage, rugged mountains, picturesque villages and a vibrant capital city. The island and its capital, Palma, are overflowing with character, while its beaches are famous all around the world, making it one of the most sought-after summer destinations.</p>
-            <picture>
-                <source media="(min-width: 1024px)" srcset="images/majorca-waves-L.png">
-                <source media="(min-width: 780px)" srcset="images/majorca-waves-M.png">
-                <img src="images/majorca-waves-S.png" alt="Majorca waves">
-            </picture>
-            <br>
-            <picture>
-                <source media="(min-width: 1024px)" srcset="images/majorca-beach-L.png">
-                <source media="(min-width: 780px)" srcset="images/majorca-beach-M.png">
-                <img src="images/majorca-beach-S.png" alt="Majorca Beach">
-            </picture>
-            <br>
-            <picture>
-                <source media="(min-width: 1024px)" srcset="images/majorca-cove-L.png">
-                <source media="(min-width: 780px)" srcset="images/majorca-cove-M.png">
-                <img src="images/majorca-cove-S.png" alt="Majorca Cove">
-            </picture>
+
+    <main class="container py-10 space-y-20">
+        <!-- Hero Section -->
+        <section id="destinations" class="grid md:grid-cols-2 gap-10 items-center">
+            <div class="space-y-4">
+                <div class="inline-block rounded-lg bg-muted px-3 py-1 text-sm">Destinations</div>
+                <h1 class="text-4xl font-extrabold tracking-tight lg:text-5xl">Majorca</h1>
+                <p class="text-muted-foreground text-lg leading-relaxed">
+                    Imagine an island with turquoise blue waters, secret coves, soft golden sands, lush green foliage, rugged mountains, picturesque villages and a vibrant capital city. The island and its capital, Palma, are overflowing with character, while its beaches are famous all around the world.
+                </p>
+                <div class="flex gap-4 pt-4">
+                    <a href="#contact" class="inline-flex h-10 items-center justify-center rounded-md bg-primary px-8 text-sm font-medium text-primary-foreground ring-offset-background transition-colors hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50">
+                        Plan Trip
+                    </a>
+                    <a href="#about" class="inline-flex h-10 items-center justify-center rounded-md border border-input bg-background px-8 text-sm font-medium ring-offset-background transition-colors hover:bg-accent hover:text-accent-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50">
+                        Learn More
+                    </a>
+                </div>
+            </div>
+            <div class="grid gap-4">
+                <img src="images/majorca-waves-L.png" class="rounded-xl shadow-md w-full object-cover h-64 md:h-80" alt="Majorca waves">
+                <div class="grid grid-cols-2 gap-4">
+                    <img src="images/majorca-beach-S.png" class="rounded-xl shadow-sm w-full object-cover h-32 md:h-40" alt="Majorca beach">
+                    <img src="images/majorca-cove-S.png" class="rounded-xl shadow-sm w-full object-cover h-32 md:h-40" alt="Majorca cove">
+                </div>
+            </div>
         </section>
-        <h3>Plan Your Trip</h3>
-        <br>
-        <p>---------------------------</p>
-        <h4>How to Get there</h4>
-        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-plane" width="150" height="150" viewBox="0 0 24 24" stroke-width="1" stroke="#00bfd8" fill="none" stroke-linecap="round" stroke-linejoin="round">
-            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-            <path d="M16 10h4a2 2 0 0 1 0 4h-4l-4 7h-3l2 -7h-4l-2 2h-3l2 -4l-2 -4h3l2 2h4l-2 -7h3z" />
-        </svg>
-        <a href="#" title="Search for flights">
-            Search for flights
-        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-right" width="40" height="40" viewBox="0 0 24 24" stroke-width="3" stroke="#00bfd8" fill="none" stroke-linecap="round" stroke-linejoin="round">
-            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-            <polyline points="9 6 15 12 9 18" />
-        </svg>
-        </a>
-        <p>---------------------------</p> 
-        <br>
-        <h4>Places to stay</h4>
-        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-bed" width="150" height="150" viewBox="0 0 24 24" stroke-width="1" stroke="#00bfd8" fill="none" stroke-linecap="round" stroke-linejoin="round">
-            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-            <path d="M3 7v11m0 -4h18m0 4v-8a2 2 0 0 0 -2 -2h-8v6" />
-            <circle cx="7" cy="10" r="1" />
-          </svg>
-        <a href="#" title="Search for Hotels">
-            Search for Hotels
-            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-right" width="40" height="40" viewBox="0 0 24 24" stroke-width="3" stroke="#00bfd8" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-                <polyline points="9 6 15 12 9 18" />              
-        </svg>
-        </a>
-        <p>---------------------------</p> 
-        <br>
-        <h4>Things to do</h4>
-        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-sailboat" width="150" height="150" viewBox="0 0 24 24" stroke-width="1" stroke="#00bfd8" fill="none" stroke-linecap="round" stroke-linejoin="round">
-            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-            <path d="M2 20a2.4 2.4 0 0 0 2 1a2.4 2.4 0 0 0 2 -1a2.4 2.4 0 0 1 2 -1a2.4 2.4 0 0 1 2 1a2.4 2.4 0 0 0 2 1a2.4 2.4 0 0 0 2 -1a2.4 2.4 0 0 1 2 -1a2.4 2.4 0 0 1 2 1a2.4 2.4 0 0 0 2 1a2.4 2.4 0 0 0 2 -1" />
-            <path d="M4 18l-1 -3h18l-1 3" />
-            <path d="M11 12h7l-7 -9v9" />
-            <line x1="8" y1="7" x2="6" y2="12" />
-        </svg>
-        <a href="#" title="Search for Activities">
-            Search for Activities
-            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-right" width="40" height="40" viewBox="0 0 24 24" stroke-width="3" stroke="#00bfd8" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-                <polyline points="9 6 15 12 9 18" />                            
-            </svg>
-        </a>
-        <p>---------------------------</p> 
-        <br>
-        <h4>Where to Eat</h4>  
-        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-tools-kitchen-2" width="150" height="150" viewBox="0 0 24 24" stroke-width="1" stroke="#00bfd8" fill="none" stroke-linecap="round" stroke-linejoin="round">
-            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-            <path d="M19 3v12h-5c-.023 -3.681 .184 -7.406 5 -12zm0 12v6h-1v-3m-10 -14v17m-3 -17v3a3 3 0 1 0 6 0v-3" />
-          </svg>
-        <a href="#" title="Search for Restaurants">
-            Search for Restaurants
-            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-right" width="40" height="40" viewBox="0 0 24 24" stroke-width="3" stroke="#00bfd8" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-                <polyline points="9 6 15 12 9 18" />                            
-            </svg>
-        </a>  
-        <p>---------------------------</p> 
-        <br>
-        <hr>
-        <br>
-        <h3>Testimonials</h3>
-        <p>---------------------------</p>
-        <br>
-        <h4>Miranda Blake</h4>
-        <picture>
-            <source media="(min-width: 1024px)" srcset="images/miranda-blake-L.png">
-            <source media="(min-width: 780px)" srcset="images/miranda-blake-M.png">
-            <img src="images/miranda-blake-S.png" alt="Miranda blake">
-        </picture>
-        <p>Traveling From: London, England<br>
-        “I traveled here for business, but my stay was extended. Now it is my home.”
-        </p> 
-        <p>---------------------------</p>
-        <br>
-        <h4>Max Winter</h4>
-        <picture>
-            <source media="(min-width: 1024px)" srcset="images/max-winter-L.png">
-            <source media="(min-width: 780px)" srcset="images/max-winter-M.png">
-            <img src="images/max-winter-S.png" alt="Max Winter">
-        </picture>
-        <p>Traveling From: Berlin, Germany<br>
-            “Great escape from my reality. Beautiful sunsets, wonderful people, great beer. ”
-        </p>
-        <p>---------------------------</p>
-        <br>
-        <h4>Inés Villegoes</h4>
-        <picture>
-            <source media="(min-width: 1024px)" srcset="images/ines-villegoes-L.png">
-            <source media="(min-width: 780px)" srcset="images/ines-villegoes-M.png">
-            <img src="images/ines-villegoes-S.png" alt="Inés Villegoes">
-        </picture>
-        <p>Traveling From: Barcelona, Spain<br>
-            “A very safe environment for all travelers.”
-            
-        </p>
-        <p>---------------------------</p>
-        <br>
-        <h4>Carmen Lorenzo</h4>
-        <picture>
-            <source media="(min-width: 1024px)" srcset="images/carmen-lorenzo-L.png">
-            <source media="(min-width: 780px)" srcset="images/carmen-lorenzo-M.png">
-            <img src="images/carmen-lorenzo-S.png" alt="Carmen Lorenzo">
-        </picture>
-        <p>Traveling From: Madrid, Spain <br>
-            “Live, laugh, love-- everything you need in Majorca.”
-            
-        </p>
-        <p>---------------------------</p>
-        <br>
-        <hr>
-        <h3>About Your Destination</h3>
-        <p>---------------------------</p>
-        <br>
-        <h4>Size</h4> 
-        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-ruler-2" width="100" height="100" viewBox="0 0 24 24" stroke-width="1" stroke="#a905b6" fill="none" stroke-linecap="round" stroke-linejoin="round">
-            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-            <path d="M17 3l4 4l-14 14l-4 -4z" />
-            <path d="M16 7l-1.5 -1.5" />
-            <path d="M13 10l-1.5 -1.5" />
-            <path d="M10 13l-1.5 -1.5" />
-            <path d="M7 16l-1.5 -1.5" />
-        </svg>
-        <p>Size: 1,405 miles squared</p>  
-        <p>---------------------------</p>
-        <br>
-        <h4>Elevation</h4> 
-        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-arrow-top-bar" width="100" height="100" viewBox="0 0 24 24" stroke-width="1" stroke="#a905b6" fill="none" stroke-linecap="round" stroke-linejoin="round">
-            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-            <line x1="12" y1="21" x2="12" y2="3" />
-            <path d="M15 6l-3 -3l-3 3" />
-            <line x1="9" y1="21" x2="15" y2="21" />
-          </svg>          
-        <p>Elevation: 4,741 feet</p>  
-        <p>---------------------------</p>
-        <br>
-        <h4>Location</h4> 
-        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-map-pin" width="100" height="100" viewBox="0 0 24 24" stroke-width="1" stroke="#a905b6" fill="none" stroke-linecap="round" stroke-linejoin="round">
-            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-            <circle cx="12" cy="11" r="3" />
-            <path d="M17.657 16.657l-4.243 4.243a2 2 0 0 1 -2.827 0l-4.244 -4.243a8 8 0 1 1 11.314 0z" />
-          </svg>
-                    
-        <p>Location: Mediterranean</p>
-        <p>---------------------------</p>
-        <br>
-        <h4>Population</h4> 
-        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-users" width="100" height="100" viewBox="0 0 24 24" stroke-width="1" stroke="#a905b6" fill="none" stroke-linecap="round" stroke-linejoin="round">
-            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-            <circle cx="9" cy="7" r="4" />
-            <path d="M3 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
-            <path d="M16 3.13a4 4 0 0 1 0 7.75" />
-            <path d="M21 21v-2a4 4 0 0 0 -3 -3.85" />
-          </svg>             
-        <p>Population: 923,608</p>
-        <p>---------------------------</p>
-        <br>
-        <hr>
-        <!-- Form for contacting and planning a trip -->
-        <section id="contact">
-            <h3>Contact Us</h3>
-            <form action="submit_form.php" method="post">
-                <label for="first_name">First Name:</label>
-                <input type="text" id="first_name" name="first_name" placeholder="Enter first name" required>
-                <br>
-                <label for="last_name">Last Name:</label>
-                <input type="text" id="last_name" name="last_name" placeholder="Enter last name" required>
-                <br>
-                
-                <fieldset>
-                    <legend>Contact Method:</legend>
-                    <label><input type="radio" name="contact_method" value="email"> Email</label>
-                    <label><input type="radio" name="contact_method" value="text"> Text</label>
-                    <label><input type="radio" name="contact_method" value="phone"> Phone</label>
-                </fieldset><br>
 
-                <label for="email">Email Address:</label><br>
-                <input type="email" id="email" name="email" placeholder="Enter Email" required>
-                <br>
-                <label for="phone">Phone Number:</label><br>
-                <input type="tel" id="phone" name="phone" placeholder="Enter telephone number">
-                <br>
-                <label for="destination">Destination:</label><br>
-                <select id="destination" name="destination">
-                    <option value="barcelona">Barcelona</option>
-                    <option value="barcelona">Granada</option>
-                    <option value="barcelona">Ibiza</option>
-                    <option value="barcelona">Madrid</option>
-                    <option value="barcelona">Majorca</option>
-                    <option value="barcelona">Seville</option>
-                    <option value="barcelona">Tenerife</option>
-                    <option value="barcelona">Tenerife</option>
+        <div class="w-full h-px bg-border"></div>
 
-                </select><br>
-                <label for="TravelTime">Travel Time :</label><br>
-                <select id="TravelTime" name="Travel Time">
-                    <option value="barcelona">Fall</option>
-                    <option value="barcelona">Winter</option>
-                    <option value="barcelona">Spring</option>
-                    <option value="barcelona">Summer</option>
-                    <option value="barcelona">Flexible</option>
+        <!-- Plan Your Trip -->
+        <section id="plan">
+            <div class="text-center mb-10">
+                <h2 class="text-3xl font-bold tracking-tight">Plan Your Trip</h2>
+                <p class="text-muted-foreground mt-2">Everything you need to know before you go.</p>
+            </div>
 
-                </select><br>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Flight Card -->
+                <div class="rounded-xl border bg-card text-card-foreground shadow-sm">
+                    <div class="p-6 flex flex-col items-center text-center space-y-4">
+                        <div class="p-3 bg-primary/10 rounded-full">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-primary" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                                <path d="M16 10h4a2 2 0 0 1 0 4h-4l-4 7h-3l2 -7h-4l-2 2h-3l2 -4l-2 -4h3l2 2h4l-2 -7h3z" />
+                            </svg>
+                        </div>
+                        <h3 class="font-semibold text-lg">Flights</h3>
+                        <p class="text-sm text-muted-foreground">Find the best deals on flights to Majorca.</p>
+                        <a href="#" class="text-sm font-medium text-primary hover:underline flex items-center">
+                            Search Flights <svg xmlns="http://www.w3.org/2000/svg" class="ml-1 h-4 w-4" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 6 15 12 9 18" /></svg>
+                        </a>
+                    </div>
+                </div>
 
-                <button type="submit">Submit</button>
+                <!-- Hotel Card -->
+                <div class="rounded-xl border bg-card text-card-foreground shadow-sm">
+                    <div class="p-6 flex flex-col items-center text-center space-y-4">
+                        <div class="p-3 bg-primary/10 rounded-full">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-primary" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                                <path d="M3 7v11m0 -4h18m0 4v-8a2 2 0 0 0 -2 -2h-8v6" />
+                                <circle cx="7" cy="10" r="1" />
+                            </svg>
+                        </div>
+                        <h3 class="font-semibold text-lg">Hotels</h3>
+                        <p class="text-sm text-muted-foreground">Cozy stays and luxurious resorts.</p>
+                        <a href="#" class="text-sm font-medium text-primary hover:underline flex items-center">
+                            Search Hotels <svg xmlns="http://www.w3.org/2000/svg" class="ml-1 h-4 w-4" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 6 15 12 9 18" /></svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Activities Card -->
+                <div class="rounded-xl border bg-card text-card-foreground shadow-sm">
+                    <div class="p-6 flex flex-col items-center text-center space-y-4">
+                        <div class="p-3 bg-primary/10 rounded-full">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-primary" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                                <path d="M2 20a2.4 2.4 0 0 0 2 1a2.4 2.4 0 0 0 2 -1a2.4 2.4 0 0 1 2 -1a2.4 2.4 0 0 1 2 1a2.4 2.4 0 0 0 2 1a2.4 2.4 0 0 0 2 -1a2.4 2.4 0 0 1 2 -1a2.4 2.4 0 0 1 2 1a2.4 2.4 0 0 0 2 1a2.4 2.4 0 0 0 2 -1" />
+                                <path d="M4 18l-1 -3h18l-1 3" />
+                                <path d="M11 12h7l-7 -9v9" />
+                                <line x1="8" y1="7" x2="6" y2="12" />
+                            </svg>
+                        </div>
+                        <h3 class="font-semibold text-lg">Activities</h3>
+                        <p class="text-sm text-muted-foreground">Sailing, hiking, and sightseeing.</p>
+                        <a href="#" class="text-sm font-medium text-primary hover:underline flex items-center">
+                            Search Activities <svg xmlns="http://www.w3.org/2000/svg" class="ml-1 h-4 w-4" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 6 15 12 9 18" /></svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Restaurants Card -->
+                <div class="rounded-xl border bg-card text-card-foreground shadow-sm">
+                    <div class="p-6 flex flex-col items-center text-center space-y-4">
+                        <div class="p-3 bg-primary/10 rounded-full">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-primary" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                                <path d="M19 3v12h-5c-.023 -3.681 .184 -7.406 5 -12zm0 12v6h-1v-3m-10 -14v17m-3 -17v3a3 3 0 1 0 6 0v-3" />
+                            </svg>
+                        </div>
+                        <h3 class="font-semibold text-lg">Dining</h3>
+                        <p class="text-sm text-muted-foreground">Experience local cuisine.</p>
+                        <a href="#" class="text-sm font-medium text-primary hover:underline flex items-center">
+                            Search Restaurants <svg xmlns="http://www.w3.org/2000/svg" class="ml-1 h-4 w-4" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 6 15 12 9 18" /></svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Destination Stats -->
+        <section id="about" class="rounded-xl bg-muted/50 p-8">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+                <div class="space-y-2">
+                    <div class="flex justify-center text-primary">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                            <path d="M17 3l4 4l-14 14l-4 -4z" />
+                            <path d="M16 7l-1.5 -1.5" />
+                            <path d="M13 10l-1.5 -1.5" />
+                            <path d="M10 13l-1.5 -1.5" />
+                            <path d="M7 16l-1.5 -1.5" />
+                        </svg>
+                    </div>
+                    <div class="text-2xl font-bold">1,405</div>
+                    <div class="text-xs uppercase tracking-wide text-muted-foreground">Sq Miles</div>
+                </div>
+                <div class="space-y-2">
+                    <div class="flex justify-center text-primary">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                            <line x1="12" y1="21" x2="12" y2="3" />
+                            <path d="M15 6l-3 -3l-3 3" />
+                            <line x1="9" y1="21" x2="15" y2="21" />
+                        </svg>
+                    </div>
+                    <div class="text-2xl font-bold">4,741</div>
+                    <div class="text-xs uppercase tracking-wide text-muted-foreground">Ft Elevation</div>
+                </div>
+                <div class="space-y-2">
+                    <div class="flex justify-center text-primary">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                            <circle cx="12" cy="11" r="3" />
+                            <path d="M17.657 16.657l-4.243 4.243a2 2 0 0 1 -2.827 0l-4.244 -4.243a8 8 0 1 1 11.314 0z" />
+                        </svg>
+                    </div>
+                    <div class="text-2xl font-bold">Medit.</div>
+                    <div class="text-xs uppercase tracking-wide text-muted-foreground">Location</div>
+                </div>
+                <div class="space-y-2">
+                    <div class="flex justify-center text-primary">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                            <circle cx="9" cy="7" r="4" />
+                            <path d="M3 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+                            <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+                            <path d="M21 21v-2a4 4 0 0 0 -3 -3.85" />
+                        </svg>
+                    </div>
+                    <div class="text-2xl font-bold">923K</div>
+                    <div class="text-xs uppercase tracking-wide text-muted-foreground">Population</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials -->
+        <section id="testimonials">
+            <h2 class="text-3xl font-bold tracking-tight text-center mb-10">Testimonials</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Testimonial 1 -->
+                <div class="rounded-xl border bg-card text-card-foreground shadow-sm">
+                    <div class="p-6 space-y-4">
+                        <div class="flex items-center gap-4">
+                            <span class="relative flex shrink-0 overflow-hidden rounded-full h-12 w-12">
+                                <img class="aspect-square h-full w-full object-cover" src="images/miranda-blake-S.png" alt="Miranda Blake">
+                            </span>
+                            <div>
+                                <div class="font-semibold text-sm">Miranda Blake</div>
+                                <div class="text-xs text-muted-foreground">London, England</div>
+                            </div>
+                        </div>
+                        <p class="text-sm text-muted-foreground italic">"I traveled here for business, but my stay was extended. Now it is my home."</p>
+                    </div>
+                </div>
+                <!-- Testimonial 2 -->
+                <div class="rounded-xl border bg-card text-card-foreground shadow-sm">
+                    <div class="p-6 space-y-4">
+                        <div class="flex items-center gap-4">
+                            <span class="relative flex shrink-0 overflow-hidden rounded-full h-12 w-12">
+                                <img class="aspect-square h-full w-full object-cover" src="images/max-winter-S.png" alt="Max Winter">
+                            </span>
+                            <div>
+                                <div class="font-semibold text-sm">Max Winter</div>
+                                <div class="text-xs text-muted-foreground">Berlin, Germany</div>
+                            </div>
+                        </div>
+                        <p class="text-sm text-muted-foreground italic">"Great escape from my reality. Beautiful sunsets, wonderful people, great beer."</p>
+                    </div>
+                </div>
+                <!-- Testimonial 3 -->
+                <div class="rounded-xl border bg-card text-card-foreground shadow-sm">
+                    <div class="p-6 space-y-4">
+                        <div class="flex items-center gap-4">
+                            <span class="relative flex shrink-0 overflow-hidden rounded-full h-12 w-12">
+                                <img class="aspect-square h-full w-full object-cover" src="images/ines-villegoes-S.png" alt="Inés Villegoes">
+                            </span>
+                            <div>
+                                <div class="font-semibold text-sm">Inés Villegoes</div>
+                                <div class="text-xs text-muted-foreground">Barcelona, Spain</div>
+                            </div>
+                        </div>
+                        <p class="text-sm text-muted-foreground italic">"A very safe environment for all travelers."</p>
+                    </div>
+                </div>
+                <!-- Testimonial 4 -->
+                <div class="rounded-xl border bg-card text-card-foreground shadow-sm">
+                    <div class="p-6 space-y-4">
+                        <div class="flex items-center gap-4">
+                            <span class="relative flex shrink-0 overflow-hidden rounded-full h-12 w-12">
+                                <img class="aspect-square h-full w-full object-cover" src="images/carmen-lorenzo-S.png" alt="Carmen Lorenzo">
+                            </span>
+                            <div>
+                                <div class="font-semibold text-sm">Carmen Lorenzo</div>
+                                <div class="text-xs text-muted-foreground">Madrid, Spain</div>
+                            </div>
+                        </div>
+                        <p class="text-sm text-muted-foreground italic">"Live, laugh, love-- everything you need in Majorca."</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="w-full h-px bg-border"></div>
+
+        <!-- Contact Form -->
+        <section id="contact" class="max-w-2xl mx-auto">
+            <div class="text-center mb-8">
+                <h2 class="text-3xl font-bold tracking-tight">Contact Us</h2>
+                <p class="text-muted-foreground mt-2">Ready to plan your dream vacation?</p>
+            </div>
+
+            <form action="https://wp.zybooks.com/form-viewer.php" method="post" class="space-y-6">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div class="space-y-2">
+                        <label for="fName" class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70">First Name</label>
+                        <input type="text" id="fName" name="fName" placeholder="Enter first name" required class="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50">
+                    </div>
+                    <div class="space-y-2">
+                        <label for="lName" class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70">Last Name</label>
+                        <input type="text" id="lName" name="lName" placeholder="Enter last name" required class="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50">
+                    </div>
+                </div>
+
+                <div class="space-y-3">
+                    <label class="text-sm font-medium leading-none">Contact Method</label>
+                    <div class="flex gap-4">
+                        <div class="flex items-center space-x-2">
+                            <input type="radio" value="email" id="prefEmail" name="contactPref" required class="aspect-square h-4 w-4 rounded-full border border-primary text-primary shadow focus:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50">
+                            <label for="prefEmail" class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70">Email</label>
+                        </div>
+                        <div class="flex items-center space-x-2">
+                            <input type="radio" value="text" id="prefText" name="contactPref" class="aspect-square h-4 w-4 rounded-full border border-primary text-primary shadow focus:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50">
+                            <label for="prefText" class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70">Text</label>
+                        </div>
+                        <div class="flex items-center space-x-2">
+                            <input type="radio" value="phone" id="prefPhone" name="contactPref" class="aspect-square h-4 w-4 rounded-full border border-primary text-primary shadow focus:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50">
+                            <label for="prefPhone" class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70">Phone</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div class="space-y-2">
+                        <label for="email" class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70">Email Address</label>
+                        <input type="email" id="email" name="email" placeholder="m@example.com" required class="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50">
+                    </div>
+                    <div class="space-y-2">
+                        <label for="phone" class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70">Phone Number</label>
+                        <input type="tel" id="phone" name="phone" placeholder="+1 (555) 000-0000" class="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50">
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div class="space-y-2">
+                        <label for="destination" class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70">Destination</label>
+                        <select id="destination" name="destination" class="flex h-10 w-full items-center justify-between rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50">
+                            <option value="barcelona">Barcelona</option>
+                            <option value="granada">Granada</option>
+                            <option value="ibiza">Ibiza</option>
+                            <option value="madrid">Madrid</option>
+                            <option value="majorca">Majorca</option>
+                            <option value="seville">Seville</option>
+                            <option value="tenerife">Tenerife</option>
+                            <option value="valencia">Valencia</option>
+                        </select>
+                    </div>
+                    <div class="space-y-2">
+                        <label for="travelTime" class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70">Travel Time</label>
+                        <select id="travelTime" name="travelTime" class="flex h-10 w-full items-center justify-between rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50">
+                            <option value="fall">Fall</option>
+                            <option value="winter">Winter</option>
+                            <option value="spring">Spring</option>
+                            <option value="summer">Summer</option>
+                            <option value="flexible">Flexible</option>
+                        </select>
+                    </div>
+                </div>
+
+                <button type="submit" class="inline-flex h-10 w-full items-center justify-center rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground ring-offset-background transition-colors hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50">
+                    Submit Request
+                </button>
             </form>
         </section>
     </main>
 
     <!-- Footer -->
-    <footer>
-        <p>Copyright 2021 Wunderlust</p>
-        <a href="privacy.html">Privacy Statement</a>
-        <a href="terms.html">Terms of Service</a>
+    <footer class="border-t bg-muted/40">
+        <div class="container py-10 flex flex-col md:flex-row items-center justify-between gap-6">
+            <div class="flex items-center gap-2 font-bold text-xl">
+                <span class="text-primary">Wunderlust</span>
+            </div>
+            <p class="text-sm text-muted-foreground">
+                &copy; 2021 Wunderlust Travel. All rights reserved.
+            </p>
+            <nav class="flex gap-4 text-sm font-medium text-muted-foreground">
+                <a href="privacy.html" class="hover:underline hover:text-foreground">Privacy</a>
+                <a href="terms.html" class="hover:underline hover:text-foreground">Terms</a>
+            </nav>
+        </div>
     </footer>
+
+    <!-- Scripts -->
+    <script>
+        // Mobile Menu Toggle
+        document.getElementById('mobile-menu-btn').addEventListener('click', function() {
+            var menu = document.getElementById('mobile-menu');
+            if (menu.classList.contains('hidden')) {
+                menu.classList.remove('hidden');
+            } else {
+                menu.classList.add('hidden');
+            }
+        });
+    </script>
 </body>
 </html>
